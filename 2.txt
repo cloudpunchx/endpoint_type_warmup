@@ -1,0 +1,46 @@
+WARMUP:
+
+1. Create a Git/GitHub repo named endpoint_type_warmup
+2. Create a local DB with the same name
+3. Configure your debugger, venv and .gitignore. Install needed pip packages
+4. In your DB, add the following:
+  4.1. restaurant
+    4.1.1. id (PK)
+    4.1.2. name (unique)
+    4.1.3. address
+    4.1.4. phone_num
+    4.1.5. image_url
+  4.2. menu_item
+    4.2.1. id (PK)
+    4.2.2. restaurant_id (FK)
+    4.2.3. name
+    4.2.4. description
+    4.2.5. price
+    4.2.6. image_url
+
+5. Create a procedure that takes in 4 arguments name_input, address_input, phone_num_input and image_url_input. 
+Attempt to INSERT a new restaurant with the given input and return the newly created restaurant id.
+
+6. Create a POST endpoint "/api/restaurant" in app.py that expects 4 arguments in the request name, address, phone_num and image_url.
+Attempt to CALL your procedure. Return JSON of the id if success and a failure message on failure.
+  6.1. Test your endpoint with postman
+
+
+7. Create a procedure that takes in 0 arguments and returns all restaurant name, address, phone_num and image_url
+
+8. Create a GET endpoint "/api/restaurant" in app.py that expects 0 arguments in the request.
+Attempt to CALL your procedure. Return JSON of the id if success and a failure message on failure.
+  8.1. Test your endpoint with postman
+
+9. Create a procedure that takes in 1 argument, restaurant_id_input. 
+Attempt to DELETE the restaurant with the given ID and return either 1 for a successful delete or 0.
+HINT: There is a built-in function named ROW_COUNT() which will tell you how many rows were updated, inserted or deleted.
+If you end a procedure with SELECT ROW_COUNT() it will return a number telling you how many rows were impacted by something
+
+10. Create a DELETE endpoint "/api/restaurant" in app.py that expects 1 arugment in the request, an id
+Attempt to CALL your delete procedure. Return either a success or failure message
+  10.1. Test your endpoint with postman
+
+11. Do the same 3 procedures and endpoints for the item table
+12. Take a full DB backup
+13. Add, commit and push your code
